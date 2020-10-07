@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .red {
+        color: red;
+      }
+      .search {
+        width: 300px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <!-- 输入框 -->
+        <input
+          type="text"
+          class="form-control search"
+          placeholder="请输入搜索关键字"
+        />
+        <table class="table table-bordered table-hover">
+          <!-- 表格头部 -->
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>资产名称</th>
+              <th>价格</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <!-- 表格内容 -->
+          <tbody>
+            <tr v-for="(item,index) in list">
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>删除</td>
+            </tr>
+          </tbody>
+          <!-- 表格底部 -->
+          <tfoot>
+            <tr>
+              <td>资产总价：</td>
+            </tr>
+          </tfoot>
+        </table>
+        <!-- 添加资产 -->
+        <form action="" class="form-inline">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="资产名称" />
+            </div>
+            &nbsp;&nbsp;
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="资产名称" />
+            </div>
+          </div>
+          &nbsp;&nbsp;
+          <button class="btn btn-primary">添加资产</button>
+        </form>
+      </div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      // 创建vue实例
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          list: [
+            { id: 3, name: "外套", price: 99 },
+            { id: 7, name: "裤子", price: 34 },
+            { id: 11, name: "鞋", price: 25.4 },
+            { id: 25, name: "头发", price: 199 },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="isShow=!isShow">控制h1的显示和隐藏</button>
+      <button @click="fn1">指定methods中的函数</button>
+      <button @click="fn2(100)">指定methods中的函数，并传参</button>
+      <h1 v-show="isShow">我是内容</h1>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          isShow: true,
+        },
+        methods: {
+          fn1() {
+            alert("嘿嘿嘿");
+            vm.isShow = !vm.isShow;
+          },
+          fn2(num) {
+            console.log(num);
+            console.log("这是fn2");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

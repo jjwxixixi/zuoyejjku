@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      //   1. get请求, 获取全部的数据
+      //   axios({
+      //     method: "get",
+      //     url: "http://localhost:3000/list",
+      //   })
+      //     .then((res) => {
+      //       // 后台返回的数据 res.data
+      //       console.log(res.data);
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //       alert("服务器繁忙");
+      //     });
+
+      //  2. post请求, 添加
+      //  put patch post的参数, 都在 data 中
+      //  json-server要求请求的传输格式 json 格式, axios默认的请求body的传输格式, 就是json格式
+      axios({
+        method: "post",
+        url: "http://localhost:3000/list",
+        data: {
+          name: "dsfhsg",
+          price: 1,
+        },
+      }).then((res) => {
+        console.log(res.data);
+        console.log("添加成功");
+      });
+
+      const vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

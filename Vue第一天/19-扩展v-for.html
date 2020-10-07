@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="item in list ">{{item}}</li>
+      </ul>
+
+      <!--  -->
+
+      <ul>
+        <li v-for="(item,index) in list">{{item}} 和 {{index}}</li>
+      </ul>
+      <!--  -->
+      <ul>
+        <li v-for="(item,index) in list2">{{index}}</li>
+      </ul>
+      <!--  -->
+      <ul>
+        <li v-for="(value,key) in obj">{{value}} 和 {{key}}</li>
+      </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          list: ["貂蝉", "吕布", "小乔", "曹操"],
+          list2: ["榴莲", "车厘子", "草莓", "苹果"],
+          obj: {
+            name: "大桥",
+            age: 79,
+            desc: "坚固",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!-- v-bind对class的增强.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .base {
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+        margin: 10px;
+      }
+      .pink {
+        background-color: pink;
+      }
+      .big {
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="base" :calss="obj">{{msg}}</div>
+      <div class="base" :class="arr">{{msg}}</div>
+      <!-- 一般内联写 -->
+      <div class="base" :class="{ pink: isPink, big: isBig}">{{msg}}</div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello vue",
+          obj: {
+            pink: true,
+            big: true,
+          },
+          arr: ["pink", "big"],
+          isPink: true,
+          isBig: false,
+        },
+      });
+    </script>
+  </body>
+</html>

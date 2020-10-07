@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      // 1. get请求, 获取全部的数据
+      // axios.get('http://localhost:3000/list').then(res => {
+      //   console.log(res.data)
+      // })
+
+      // 2. 发送get请求, 完成搜索数据
+      // axios.get('http://localhost:3000/list?name_like=车').then(res => {
+      //   console.log(res.data)
+      // })
+      // axios.get('http://localhost:3000/list', {
+      //   params: {
+      //     name_like: '车'
+      //   }
+      // }).then(res => {
+      //   console.log(res.data)
+      // })
+
+      // 3. post请求, 添加
+      // axios.post('http://localhost:3000/list', {
+      //   name: '小汽车',
+      //   price: 3
+      // }).then(res => {
+      //   console.log('添加完成')
+      // })
+
+      // 4. 删除 delete
+      // const id = 2
+      // axios.delete(`http://localhost:3000/list/${id}`).then(res => {
+      //   console.log('删除成功')
+      // })
+
+      // 5. 全部修改, 两个属性都改 put
+      // const id = 5
+      // axios.put(`http://localhost:3000/list/${id}`, {
+      //   name: 'house',
+      //   price: 5
+      // }).then(res => {
+      //   console.log(res.data) // 得到修改后的结果
+      //   console.log('修改成功')
+      // })
+
+      // 6. 局部修改, 只改一个属性 patch
+      const id = 4;
+      axios
+        .patch(`http://localhost:3000/list/${id}`, {
+          name: "jack",
+        })
+        .then((res) => {
+          console.log(res.data); // 得到修改的结果
+          console.log("修改成功");
+        });
+    </script>
+  </body>
+</html>

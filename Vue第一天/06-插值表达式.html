@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 06-插值表达式.html {{}} 小胡子语法 -->
+    <!-- 1 不是data中的变量, 不要直接用 -->
+    <!-- <h1>{{ info }}</h1> -->
+
+    <!-- 2. 在插值表达式{{ }} 中, 不能使用js语句 比如: if for -->
+    <!-- <h1>{{ if (obj.age > 18) {...}  }}</h1> -->
+
+    <!-- 3. 不能在html标签属性中, 使用插值表达式 -->
+    <!-- <h1 id="box" data-id="{{ money }}" info="{{ house }}"></h1> -->
+
+    <div id="app">
+      <!-- <h2>{{ aaa }}</h2> -->
+      <h2>{{ msg }}</h2>
+      <h2>{{money }}</h2>
+      <!-- obj.name -->
+      <h2>{{obj.name}}</h2>
+      <!-- 转大写 -->
+      <h2>{{msg.toUpperCase()}}</h2>
+      <!-- 支持三元 -->
+      <h2>{{obj.age>=18?'成年':'未成年'}}</h2>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      //  只要引入Vue，就在全局，有一个Vue构造函数
+
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "你好，Vue",
+          money: 100,
+          obj: {
+            name: "杨洋",
+            age: 18,
+            desc: "帅小伙",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

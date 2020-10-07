@@ -1,0 +1,8 @@
+
+03-bind对于style的加强
+ <!-- ====================== -->
+ 05-
+      <p>{{isSingle}}</p>
+      <input type="checkbox" v-model="isSingle" checked />是否单身
+      ===============================
+      17-

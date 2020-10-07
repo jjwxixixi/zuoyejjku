@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <img v-bind:src="imgSrc" v-bind:title="info" v-bind:aa="bb" alt="" />
+      <!-- 简写 -->
+      <img :src="imgSrc" :title="info" :aa="bb" alt="" />
+    </div>
+    <!-- v-bind作用: 动态设置html标签属性 (访问的是data中的数据) -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          imgSrc: "01.jpg",
+          info: "这是一张美女图片",
+          bb: "内容",
+        },
+      });
+    </script>
+  </body>
+</html>

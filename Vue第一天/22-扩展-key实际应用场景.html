@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="fn">按钮</button>
+      <ul>
+        <li v-for="item in list" :key="item.id">
+          {{item.name}}和{{item.price}}元/斤
+        </li>
+      </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      // key一般指定成 id, key必须是唯一标识, 只要设置了key, 当前列表不会按照默认的下标, 而是按照key对比了
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          list: [
+            { id: 1, name: "苹果", price: "1.8", num: "10斤" },
+            { id: 2, name: "鸭梨", price: "5.8", num: "20斤" },
+            { id: 3, name: "榴莲", price: "9.8", num: "50斤" },
+            { id: 4, name: "西瓜", price: "11.8", num: "60斤" },
+          ],
+        },
+        methods: {
+          fn() {
+            this.list.unshift({
+              id: +new Date(),
+              name: "火龙果",
+              price: "1.8",
+              num: "10斤",
+            });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

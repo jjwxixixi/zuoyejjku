@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="box1">
+        <h2>{{count}}</h2>
+        <!-- 如果想同时显示box1和box2的内容，在外面再包一个盒子 -->
+        <div id="box2">
+          <h2>{{car }}</h2>
+        </div>
+      </div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+      /*   
+      <!-- 步骤：
+            下载 npm i vue
+            引包
+            使用，创建实例
+         -->
+        1. Vue的构造函数, 首字母大写
+        2. el不能指定成 body 或者 html
+        3. 到了vue, 请时刻记住: 数据驱动, 要更新视图, 请操作数据
+           vm.xxx = 值
+     */
+
+      // 创建Vue实例
+      const vm = new Vue({
+        //   视图
+        el: "#main",
+        // 数据
+        data: {
+          msg: "嘿嘿",
+          count: 100,
+          car: "宝马车",
+        },
+      });
+    </script>
+  </body>
+</html>
